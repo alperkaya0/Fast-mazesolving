@@ -9,8 +9,15 @@ import javax.imageio.ImageIO;
 public class Main extends IntiutivelyShortest{
 
     public static void main(String[] args) throws IOException {
+        Scanner scanner = new Scanner(System.in);
         //Don't forget to change file and starting,finishing points
-        File orIm = new File("C:\\Users\\Alper\\Desktop\\maze2.png");
+        System.out.println("Please enter your username:");
+        String username = scanner.nextLine();
+        File orIm = new File("C:\\Users\\"+username+"\\Desktop\\maze2.png");
+        System.out.println("Please enter starting point and finishing point in this format [startingColumn]x[startingRow] and [finishingColumn]x[finishingRow]");
+        String start = scanner.next();
+        String finish = scanner.next();
+        scanner.close();
         BufferedImage img = null;
         BufferedImage gray = null;
         try {
@@ -114,14 +121,14 @@ public class Main extends IntiutivelyShortest{
         int finish = -1;
         for (int i = 0;i<graphVertices.size();++i) {
             if (graphVertices.get(i) != null){
-                if (graphVertices.get(i).getName().equals("0x6")) {
+                if (graphVertices.get(i).getName().equals(start)) {
                     start = i;
                 }
             }
         }
         for (int i = 0;i<graphVertices.size();++i) {
             if (graphVertices.get(i) != null){
-                if (graphVertices.get(i).getName().equals("50x20")) {
+                if (graphVertices.get(i).getName().equals(finish)) {
                     finish = i;
                 }
             }
@@ -145,7 +152,7 @@ public class Main extends IntiutivelyShortest{
         }
         boolean successBlue = false;
         try{
-            successBlue = ImageIO.write(gray, "PNG", new File("C:\\Users\\Alper\\Desktop\\outputBlue.png"));
+            successBlue = ImageIO.write(gray, "PNG", new File("C:\\Users\\"+username+"\\Desktop\\outputBlue.png"));
         }catch (Exception e) {
             System.out.println(e);
         }
@@ -168,7 +175,7 @@ public class Main extends IntiutivelyShortest{
         }
         boolean successColorful = false;
         try{
-            successColorful = ImageIO.write(gray, "PNG", new File("C:\\Users\\Alper\\Desktop\\outputColorful.png"));
+            successColorful = ImageIO.write(gray, "PNG", new File("C:\\Users\\"+username+"\\Desktop\\outputColorful.png"));
         }catch (Exception e) {
             System.out.println(e);
         }
