@@ -1,6 +1,6 @@
 # Fast-mazesolving
 I have made my last project faster, and sharing again.
-Just pick the input file,starting point and finishing point.I have used my last project as underlying system to write this one.<br/>
+Just pick the input file,starting point and finishing point.I have used my last ungraphs project as underlying system to write this one.<br/>
 (Pick small png files and paint every pixel that you don't want to use to black to make it work faster)<br/>
 (I can make it work faster via cutting creating tree when tree once has desired finishing point)<br/>
 (Note:I have done it.)<br/>
