@@ -4,6 +4,7 @@ import java.io.File;
 import java.awt.image.BufferedImage;
 import java.util.ArrayList;
 import java.util.LinkedList;
+import java.util.Scanner;
 import javax.imageio.ImageIO;
 
 public class Main extends IntiutivelyShortest{
@@ -13,10 +14,12 @@ public class Main extends IntiutivelyShortest{
         //Don't forget to change file and starting,finishing points
         System.out.println("Please enter your username:");
         String username = scanner.nextLine();
-        File orIm = new File("C:\\Users\\"+username+"\\Desktop\\maze2.png");
+        System.out.println("Please enter name of file at the desktop with the extension like [filename].[filetype]:");
+        String filename = scanner.next();
+        File orIm = new File("C:\\Users\\"+username+"\\Desktop\\"+filename);
         System.out.println("Please enter starting point and finishing point in this format [startingColumn]x[startingRow] and [finishingColumn]x[finishingRow]");
-        String start = scanner.next();
-        String finish = scanner.next();
+        String startStr = scanner.next();
+        String finishStr = scanner.next();
         scanner.close();
         BufferedImage img = null;
         BufferedImage gray = null;
@@ -121,14 +124,14 @@ public class Main extends IntiutivelyShortest{
         int finish = -1;
         for (int i = 0;i<graphVertices.size();++i) {
             if (graphVertices.get(i) != null){
-                if (graphVertices.get(i).getName().equals(start)) {
+                if (graphVertices.get(i).getName().equals(startStr)) {
                     start = i;
                 }
             }
         }
         for (int i = 0;i<graphVertices.size();++i) {
             if (graphVertices.get(i) != null){
-                if (graphVertices.get(i).getName().equals(finish)) {
+                if (graphVertices.get(i).getName().equals(finishStr)) {
                     finish = i;
                 }
             }
